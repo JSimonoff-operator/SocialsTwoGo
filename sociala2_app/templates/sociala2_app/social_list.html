@@ -1,0 +1,24 @@
+{% extends 'sociala2_app/base_template.html' %}
+
+{% block content %}
+<div class="card" style="height: 30rem; ">
+    
+	<h1>Social Accounts</h1>
+	<a class="btn btn-primary" href="{% url 'social-create' %}">Create New Social Account</a>
+	<div class="card-body" style="background-color: #FF474C; ">
+	{% if social %}
+		<ul>
+			{% for social in social %}
+				<li class="list_group-item">User: {{social.specific_username}}</li>
+				<li class="list_group-item">User: {{social.platform}}</li>
+				<a class="btn btn-primary" href="{% url 'social-detail' social.id %}">View</a>
+				<a class="btn btn-primary" href="{% url 'social-update' social.id %}">Update</a>	
+				<a class="btn btn-primary" href="{% url 'social-delete' social.id %}">Delete</a>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>There are no accounts registered.</p>
+	{% endif %}
+    </div>
+</div>
+{% endblock %}

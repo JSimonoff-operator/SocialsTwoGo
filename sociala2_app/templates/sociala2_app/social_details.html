@@ -1,0 +1,17 @@
+{% extends 'sociala2_app/base_template.html' %}
+
+
+
+{% block content %}
+
+    <h2><strong>User:</strong> {{ social.specific_username }}</h2>
+    {% if social.profile_pic %}
+        <img class"profile-pic" src="{{ social.profile_pic.url }}">
+    {% endif %}
+    <h3><strong>Platform:</strong> {{ social.platform }}</h3>
+    <h4><strong>Purpose:</strong> {{ social.purpose }}</h4>
+    <h4><strong>Friend Code:</strong> {{ social.friend_code}}</h4>
+    <h4><strong>Description:</strong> {{ social.description }}</h4>
+    <h4><strong>Active?:</strong> {{ social.is_active }}</h4>
+    <a class="btn btn-primary" href="{% url 'social-list' %}">Back</a>
+{% endblock %}

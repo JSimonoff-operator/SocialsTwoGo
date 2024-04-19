@@ -1,0 +1,15 @@
+{% extends 'sociala2_app/base_template.html' %}
+{% block content %}
+<h3> Login </h3>
+
+    <form method="POST" autocomplete="off" action="">
+        {% csrf_token %}
+        {{ loginform.as_p }}
+    
+        <input type="submit" value="Login">
+    </form>
+    <p> Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+    {% for message in messages %}
+    <p id="messages">{{message}}</p>
+    {% endfor %}
+{% endblock %}
